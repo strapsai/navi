@@ -1,0 +1,12 @@
+[submodule "simulation/spot_isaac_adapter"]
+	path = simulation/spot_isaac_adapter
+	url = git@github.com:strapsai/spot_isaac_adapter.git
+	branch = main
+[submodule "perception/rayfronts"]
+	path = perception/rayfronts
+	url = git@github.com:OasisArtisan/SSG.git
+	branch = adi/setup
+[submodule "cognition/VLM"]
+	path = cognition/VLM
+	url = git@github.com:strapsai/vlm_vqa_orin.git
+	branch = main
