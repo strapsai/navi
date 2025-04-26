@@ -1,12 +1,10 @@
-version: '3'
-
 services:
-  robot-spot:
-    image: theairlab/robot-spot:x86
-    container_name: robot-spot
+  navi-sim:
+    image: theairlab/navi-sim:x86
+    container_name: navi-sim
     build:
       context: .
-      dockerfile: robot-spot.Dockerfile
+      dockerfile: navi-sim.Dockerfile
       args:
         BASE_IMAGE: theairlab/darpa-triage:x86-03-ros2
     runtime: nvidia
@@ -17,7 +15,7 @@ services:
             - capabilities: [gpu]
     network_mode: host
     environment:
-      - ROBOT_DIR=${ROBOT_DIR}
+      - SIM_DIR=${SIM_DIR}
       - ROBOT_NAME=${ROBOT_NAME}
       - ROS_DOMAIN_ID=${ROS_DOMAIN_ID}
       - DISPLAY=${DISPLAY}  # Pass the DISPLAY environment variable
@@ -32,14 +30,9 @@ services:
       - /dev:/dev
       - /etc/udev:/etc/udev
       # Mounting the working directory to the container
-      - ../ros_ws:${ROBOT_DIR}/ros_ws:rw
+      - ../ros_ws:${SIM_DIR}/ros_ws:rw
     stdin_open: true
     tty: true
     # Run the entrypoint shell script
-    entrypoint: [ "/bin/bash", "${ROBOT_DIR}/entrypoint/robot-spot.sh" ]
+    entrypoint: [ "/bin/bash", "${SIM_DIR}/entrypoint/navi-sim.sh" ]
 
-
-
-include:
-  - path: ../simulation/docker/docker-compose-x86.yaml
-    env_file: ../simulation/docker/.env

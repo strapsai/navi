@@ -7,10 +7,10 @@ source ~/.bashrc
 sleep 3
 
 # Setting home directory
-cd ${NAVI_DIR}
+cd ${SIM_DIR}
 
 # Load the tmux session
-tmuxp load ${NAVI_DIR}/entrypoint/navi.yaml
+tmuxp load ${SIM_DIR}/entrypoint/navi-sim.yaml
 
 # Keep container running even if the launch fails
 while true; do
