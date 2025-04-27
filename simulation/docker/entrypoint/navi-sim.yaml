@@ -3,7 +3,13 @@ windows:
   - window_name: navi-main
     layout: main-vertical
     shell_command_before:
-      - cd ${NAVI_DIR}/ssg
+      - cd ${SIM_DIR}/ros_ws
+      - colcon build --symlink-install
+      - source install/setup.bash
     panes:
       - shell_command:
         - echo "Welcome to Navi autonomy! Main terminal."
+        - ros2 launch robot_control robot_control.launch.py
+      - shell_command:
+          - echo "Opening control UI"
+          - python3 ros_ws/src/quadruped_robot_ROS2/UI/controller.py

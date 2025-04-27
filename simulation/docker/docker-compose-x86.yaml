@@ -1,27 +1,38 @@
 services:
-  navi-sim:
-    image: theairlab/navi-sim:x86
-    container_name: navi-sim
+  isaac-sim:
+    profiles:
+      - ""
+      - sitl
+      - hitl
+    image: navi/isaac-sim:latest
     build:
-      context: .
-      dockerfile: navi-sim.Dockerfile
-      args:
-        BASE_IMAGE: theairlab/darpa-triage:x86-03-ros2
-    runtime: nvidia
+      context: ../
+      dockerfile: docker/navi-sim.Dockerfile
+    container_name: navi-isaac-sim
+    ipc: host
+    privileged: true
+    network_mode: host
     deploy:
+      # let it use the GPU
       resources:
         reservations:
           devices:
-            - capabilities: [gpu]
-    network_mode: host
+            - driver: nvidia # https://stackoverflow.com/a/70761193
+              count: 1
+              capabilities: [gpu]
     environment:
+      # NVIDIA stuff
+      - ACCEPT_EULA=Y
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/root/.Xauthority  # Ensure X11 uses the correct authority file
+      - DEVICE_TYPE="x86"
+      # ROS2 stuff
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - FASTRTPS_DEFAULT_PROFILES_FILE=/isaac-sim/fastdds.xml
       - SIM_DIR=${SIM_DIR}
       - ROBOT_NAME=${ROBOT_NAME}
       - ROS_DOMAIN_ID=${ROS_DOMAIN_ID}
-      - DISPLAY=${DISPLAY}  # Pass the DISPLAY environment variable
-      - XAUTHORITY=/root/.Xauthority  # Ensure X11 uses the correct authority file
-      - DEVICE_TYPE="x86"
-      - CONDA_PREFIX=${CONDA_PREFIX}
     volumes:
       - ${HOME}/.Xauthority:/root/.Xauthority:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
@@ -36,4 +47,4 @@ services:
     tty: true
     # Run the entrypoint shell script
     entrypoint: [ "/bin/bash", "${SIM_DIR}/entrypoint/navi-sim.sh" ]
-
+  # ===================================================================================================================
