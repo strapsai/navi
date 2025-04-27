@@ -1,0 +1,9 @@
+session_name: navi
+windows:
+  - window_name: navi-main
+    layout: main-vertical
+    shell_command_before:
+      - cd ${ROBOT_DIR}/ssg
+    panes:
+      - shell_command:
+        - echo "Welcome to Navi autonomy! Main terminal."

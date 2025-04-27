@@ -33,6 +33,7 @@ services:
       - /etc/udev:/etc/udev
       # Mounting the working directory to the container
       - ../ros_ws:${ROBOT_DIR}/ros_ws:rw
+      - ./entrypoint:${ROBOT_DIR}/entrypoint:rw
     stdin_open: true
     tty: true
     # Run the entrypoint shell script
