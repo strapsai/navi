@@ -14,3 +14,4 @@
 	path = autonomy_ros_ws/src/3_cognition/rayfronts
 	url = git@github.com:OasisArtisan/SSG.git
 	branch = adi/setup
+
