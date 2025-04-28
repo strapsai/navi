@@ -35,6 +35,8 @@ git submodule update --init --recursive
 1. Navigate to the `docker` directory:
    ```bash
    cd docker
-   docker-compose up --build
+   xhost +
+   docker compose -f docker-compose-x86.yaml up -d
    ```
+2. Open isaac sim and open 
 
