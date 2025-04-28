@@ -1,6 +1,8 @@
 # Spot Autonomy with Sim2Real setup
 ## Overview
 This project is designed to create a robot with Sim2Real capabilities. The development follows conventions based on [Airstack/Robot](https://github.com/castacks/AirStack/tree/develop/robot).
+![img.png](asset/hitl.png)
+
 
 ### Project Structure
 1. `docker/` - Contains the Dockerfile for building the robot image.
