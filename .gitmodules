@@ -15,3 +15,7 @@
 	url = git@github.com:OasisArtisan/SSG.git
 	branch = adi/setup
 
+[submodule "autonomy_ros_ws/src/6_controls/spot_ros2"]
+	path = autonomy_ros_ws/src/6_controls/spot_ros2
+	url = git@github.com:bdaiinstitute/spot_ros2.git
+	branch = main

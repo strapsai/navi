@@ -19,3 +19,12 @@ source install/setup.bash
 ros2 launch robot_control robot_control.launch.py
 clear
 exit
+python3 ros_ws/src/quadruped_robot_ROS2/UI/controller.py
+cd ../
+python3 ros_ws/src/quadruped_robot_ROS2/UI/controller.py
+clear
+xit
+exit
+clear
+ros2 launch robot_control robot_control.launch.py
+exit
