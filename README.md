@@ -34,9 +34,8 @@ git submodule update --init --recursive
 ### Build the Docker Image
 1. Navigate to the `docker` directory:
    ```bash
-   cd docker
    xhost +
-   docker compose -f docker-compose-x86.yaml up -d
+   docker compose -f docker/docker-compose-x86.yaml up -d
    ```
 2. Open isaac sim and open 
-
+   
