@@ -1,11 +1,3 @@
-; Simulation submodules
-[submodule "simulation/ros_ws/src/spot_isaac_adapter"]
-	path = simulation/ros_ws/src/spot_isaac_adapter
-	url = git@github.com:strapsai/spot_isaac_adapter.git
-	branch = main
-
-
-; Cognition submodules
 [submodule "autonomy_ros_ws/src/3_cognition/VLM"]
 	path = autonomy_ros_ws/src/3_cognition/VLM
 	url = git@github.com:strapsai/vlm_vqa_orin.git
@@ -18,4 +10,10 @@
 [submodule "autonomy_ros_ws/src/6_controls/spot_ros2"]
 	path = autonomy_ros_ws/src/6_controls/spot_ros2
 	url = git@github.com:bdaiinstitute/spot_ros2.git
+	branch = main
+
+
+[submodule "simulation/ros_ws/src/spot_isaac_adapter"]
+	path = simulation/ros_ws/src/spot_isaac_adapter
+	url = git@github.com:strapsai/spot_isaac_adapter.git
 	branch = main
