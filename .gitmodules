@@ -14,3 +14,7 @@
 
 
 
+[submodule "simulation/spot_ws/src/spot_isaac_adapter"]
+	path = simulation/spot_ws/src/spot_isaac_adapter
+	url = git@github.com:strapsai/spot_isaac_adapter.git
+	branch = main
