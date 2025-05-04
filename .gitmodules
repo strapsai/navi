@@ -18,3 +18,7 @@
 	path = simulation/spot_ws/src/spot_isaac_adapter
 	url = git@github.com:strapsai/spot_isaac_adapter.git
 	branch = main
+[submodule "simulation/isaac-ros_ws"]
+	path = simulation/isaac-ros_ws
+	url = git@github.com:isaac-sim/IsaacSim-ros_workspaces.git
+	branch = main
