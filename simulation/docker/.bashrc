@@ -99,4 +99,5 @@ fi
 #fi
 
 source /opt/ros/humble/setup.bash
+source /humble_ws/install/setup.bash
 cd ${SIM_DIR}

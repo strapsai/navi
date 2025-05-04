@@ -6,9 +6,11 @@ WORKDIR /isaac-sim
 
 # isaac's ros2 launch run_isaacsim.launch.py hardcodes to search in this path, so we have to put the executables here
 RUN mkdir -p /root/.local/share/ov/pkg/
-RUN ln -s /isaac-sim /root/.local/share/ov/pkg/isaac-sim-4.2.0
+RUN ln -s /isaac-sim /root/.local/share/ov/pkg/isaac_sim-${ISAAC_VERSION}
 # allows us to run isaac-sim as root
 ENV OMNI_KIT_ALLOW_ROOT=1
+ENV ISAACSIM_PYTHON=/isaac-sim/python.sh
+ENV ISAAC_PATH="/isaac-sim"
 
 # setup timezone
 RUN echo 'Etc/UTC' > /etc/timezone && \
@@ -119,6 +121,14 @@ RUN cd /tmp/ && \
     rm -rf /tmp/IsaacSim-${ISAAC_VERSION}.zip /tmp/${isaac_dir_name}
 
 WORKDIR /isaac-sim
+
+# Install Boston Dynamics Spot SDK packages (including choreography protos)
+RUN python3 -m pip install \
+    bosdyn-client==4.1.1 \
+    bosdyn-mission==4.1.1 \
+    bosdyn-choreography-client==4.1.1 \
+    bosdyn-orbit==4.1.1 \
+    bosdyn-choreography-protos==4.1.1
 
 # isaac's ros2 launch run_isaacsim.launch.py hardcodes to search in this path
 RUN mkdir -p /root/.local/share/ov/pkg/ && ln -s /isaac-sim /root/.local/share/ov/pkg/isaac-sim-${ISAAC_VERSION}

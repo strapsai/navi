@@ -1,1 +1,0 @@
-Thanks to [robot mania](https://www.youtube.com/@robotmania8896) for the isaac sim files. 

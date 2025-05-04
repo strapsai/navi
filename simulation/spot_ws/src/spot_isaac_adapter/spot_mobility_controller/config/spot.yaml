@@ -1,0 +1,39 @@
+topic_name:
+  local_planner: "/mppi/path"  # Topic for Mppi solution
+  spot_controller: "spot_waypoint"  # Topic for dsending to spot controller
+
+transform_params:
+  translation: [-0.2, 0.0, 0.2]  # Translation vector (x, y, z)
+  quaternion: [0.0, 0.0, 0.0, 1.0]  # Quaternion (x, y, z, w)
+  from_frame: "/sensor_init"  # Frame to transform from (not being used right now getting from header of message itself)
+  to_frame: "/base/spot/body"  # Frame to transform to
+
+
+logging:
+  level: "info" # Logging level. Values: debug, info, warning, error, critical
+
+debug:
+  enabled: true # Enable or disable debug mode
+
+# robot_name: "spot1"
+# Use env variable to set robot name
+
+# Rotation os_lidar to body:
+# [ [ -1  0 0 -0.2]
+#   [ 0  -1 0  0.0]
+#   [ 0   0 1  0.2]
+#   [ 0   0 0  1.0]]
+
+# Lidar to body
+
+# from scipy.spatial.transform import Rotation as R
+# import numpy as np
+
+# mat = [[-1,0,0],
+# [0,-1,0],
+# [0,0,1]]
+# r = R.from_matrix(np.array(mat))
+# #r = R.from_matrix(np.eye(3))
+# print(r.as_quat())
+
+

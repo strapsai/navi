@@ -43,6 +43,7 @@ services:
       # Mounting the working directory to the container
       - ../ros_ws:${SIM_DIR}/ros_ws:rw
       - ./entrypoint:${SIM_DIR}/entrypoint:rw
+      - ../assets:${SIM_DIR}/assets:rw
     stdin_open: true
     tty: true
     # Run the entrypoint shell script
