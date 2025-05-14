@@ -22,3 +22,6 @@
 	path = simulation/isaac-ros_ws
 	url = git@github.com:isaac-sim/IsaacSim-ros_workspaces.git
 	branch = main
+[submodule "simulation/spot_ws/src/PegasusSimulator"]
+	path = simulation/spot_ws/src/PegasusSimulator
+	url = https://github.com/PegasusSimulator/PegasusSimulator.git
